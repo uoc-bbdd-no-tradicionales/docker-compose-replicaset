@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  mongo1:
+    image: mongo:5
+    container_name: mongo1
+    command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo1', '--port', '27018']
+    restart: always
+    ports:
+      - 27018:27018
+    networks:
+      - mongodb_service
+    volumes:
+      - volume-mongo1:/data/db
+  mongo2:
+    image: mongo:5
+    container_name: mongo2
+    command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo2', '--port', '27019']
+    restart: always
+    ports:
+      - 27019:27019
+    networks:
+      - mongodb_service
+    volumes:
+      - volume-mongo2:/data/db
+  mongo3:
+    image: mongo:5
+    container_name: mongo3
+    command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo3', '--port', '27020']
+    restart: always
+    ports:
+      - 27020:27020
+    networks:
+      - mongodb_service
+    volumes:
+      - volume-mongo3:/data/db
+  create-replicaset:
+    image: markcbb/uoc-non-traditional-databases-create-replicaset:6
+    container_name: create-replica-set
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    ports:
+      - 8080:80
+    networks:
+      - mongodb_service
+
+networks:
+  mongodb_service:
+    name: mongodb_service
+
+volumes:
+  volume-mongo1:
+    name: volume-mongo1
+  volume-mongo2:
+    name: volume-mongo2
+  volume-mongo3:
+    name: volume-mongo3
