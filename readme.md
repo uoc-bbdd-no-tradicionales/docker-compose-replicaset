@@ -9,7 +9,7 @@ This docker compose it's built based on four containers. Three are instances of 
 
 ## Make sure that:
 
- You have Docker installed and its service is running in your computer.
+ You have [Docker installed](https://docs.docker.com/get-docker/) and its service is running in your computer.
 
 ## To run the stack in Mac and Windows
  
@@ -54,6 +54,7 @@ docker-compose down
 
 This will **not** clear the replica set configuration. Running again ```docker-compose up -d``` all the containers will start in the same state as they were when were stopped.
 
+## Clear/reset all configuration and data
 To clear the state and start from the scratch, stop all containers running ```docker compose down``` and next run:
 
 ```
