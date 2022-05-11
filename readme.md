@@ -27,7 +27,7 @@ docker-compose up -d
 
 Once the stack is running, connect to http://localhost:8080 and follow the instructions.
 
-## To access to any node
+## Accessing nodes individually
 
 To connect to the node 1 run:
 ```
@@ -35,9 +35,25 @@ docker exec -it mongo1 /bin/sh
 ```
 Next, to connect to the mongo shell run:
 ```
-mongo
+mongo mongo1:27018
 ```
-To connect to any other node repeat the two previous steps replacing ```mongo1``` by ```mongo2``` or ```mongo3``` depending on the instance that you want to connect.
+To connect to the node 2 run:
+```
+docker exec -it mongo2 /bin/sh
+```
+Next, to connect to the mongo shell run:
+```
+mongo mongo2:27019
+```
+
+To connect to the node 3 run:
+```
+docker exec -it mongo3 /bin/sh
+```
+Next, to connect to the mongo shell run:
+```
+mongo mongo3:27020
+```
 
 ## To stop all containers in Windows
 After exiting the mongo and the container shell, run:
