@@ -9,7 +9,23 @@ This docker compose it's built based on four containers. Three are instances of 
 
 ## Make sure that:
 
- You have [Docker installed](https://docs.docker.com/get-docker/) and its service is running in your computer.
+You have [Docker installed](https://docs.docker.com/get-docker/) and its service is running in your computer.
+
+## Download the repo
+
+Download the repo and unzip it clicking in Code > Download ZIP as it is shown below:
+
+![Clone the repo screenshot](https://github.com/MarkCBB/docker-compose-replicaset/blob/master/docs/screenshot.png?raw=true)
+
+## Go to the root folder of the project
+
+Open a command line shell and go to the path where you unziped the file. For example in windows:
+
+```
+cd C:\Users\Marc\Documents\docker-compose-replicaset\
+```
+
+This path may not work in your PC, make sure to identify the root path of yours.
 
 ## To run the stack in Mac and Windows
  
