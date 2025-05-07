@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   mongo1:
-    image: mongo:5
+    image: mongo:4.2
     container_name: mongo1
     command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo1', '--port', '27018']
     restart: always
@@ -12,7 +12,7 @@ services:
     volumes:
       - volume-mongo1:/data/db
   mongo2:
-    image: mongo:5
+    image: mongo:4.2
     container_name: mongo2
     command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo2', '--port', '27019']
     restart: always
@@ -23,7 +23,7 @@ services:
     volumes:
       - volume-mongo2:/data/db
   mongo3:
-    image: mongo:5
+    image: mongo:4.2
     container_name: mongo3
     command: ['mongod', '--replSet', 'Replica_UOC', '--bind_ip', 'localhost,mongo3', '--port', '27020']
     restart: always
